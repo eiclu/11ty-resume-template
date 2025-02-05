@@ -1,0 +1,110 @@
+backend:
+  name: github
+  repo: eiclu/11ty-resume
+
+media_folder: "src/assets/images"
+public_folder: "/assets/images"
+
+collections:
+  - name: resume
+    label: "Resume"
+    files:
+      - name: author
+        label: "Author"
+        file: "/src/_data/author.json"
+        fields:
+          - {name: name, label: "Name", widget: string}
+          - {name: shortName, label: "ShortName", widget: string}
+          - {name: org, label: "Org", widget: string}
+          - {name: image, label: "Image", widget: image}
+          - {name: title, label: "Title", widget: string}
+          - {name: currentFocus, label: "CurrentFocus", widget: string}
+          - {name: location, label: "Location", widget: string}
+          - {name: email, label: "Email", widget: string}
+          - {name: telephone, label: "Telephone", widget: string}
+          - {name: website, label: "Website", widget: string}
+          - name: address
+            label: "Address"
+            widget: object
+            fields:
+              - {name: streetAddress, label: "StreetAddress", widget: string}
+              - {name: addressLocality, label: "AddressLocality", widget: string}
+              - {name: addressRegion, label: "AddressRegion", widget: string}
+              - {name: postalCode, label: "PostalCode", widget: string}
+              - {name: addressCountry, label: "AddressCountry", widget: string}
+          - name: connect
+            label: "Connect"
+            widget: list
+            summary: '{{fields.name}}'
+            fields:
+              - {name: name, label: "Name", widget: string}
+              - {name: icon, label: "Icon", widget: string}
+              - {name: url, label: "Url", widget: string}
+          - name: skills
+            label: "Skills"
+            widget: list
+            summary: '{{fields.type}}'
+            fields:
+              - {name: type, label: "Type", widget: string}
+              - name: tools
+                label: "Tools"
+                widget: list
+                summary: '{{fields.language}}'
+                fields:
+                  - {name: name, label: "Name", widget: string}
+                  - {name: icon, label: "Icon", widget: string}
+          - name: worksFor
+            label: "WorksFor"
+            widget: list
+            summary: '{{fields.companyName}}'
+            fields:
+              - {name: companyName, label: "CompanyName", widget: string}
+              - {name: title, label: "Title", widget: string}
+              - {name: time_start, label: "Time_start", widget: string}
+              - {name: time_end, label: "Time_end", widget: string}
+              - {name: link, label: "Link", widget: string}
+              - {name: isCurrent, label: "IsCurrent", widget: boolean}
+              - name: address
+                label: "Address"
+                widget: object
+                fields:
+                  - {name: streetAddress, label: "StreetAddress", widget: string}
+                  - {name: addressLocality, label: "AddressLocality", widget: string}
+                  - {name: addressRegion, label: "AddressRegion", widget: string}
+                  - {name: postalCode, label: "PostalCode", widget: string}
+                  - {name: addressCountry, label: "AddressCountry", widget: string}
+          - name: alumniOf
+            label: "AlumniOf"
+            widget: list
+            summary: '{{fields.name}}'
+            fields:
+              - {name: org, label: "Org", widget: string}
+              - {name: certification, label: "Certification", widget: string}
+              - {name: year_start, label: "Year_start", widget: string}
+              - {name: year_end, label: "Year_end", widget: string}
+              - name: address
+                label: "Address"
+                widget: object
+                fields:
+                  - {name: addressLocality, label: "AddressLocality", widget: string}
+                  - {name: addressRegion, label: "AddressRegion", widget: string}
+                  - {name: addressCountry, label: "AddressCountry", widget: string}
+          - name: hasCredential
+            label: "HasCredential"
+            widget: list
+            summary: '{{fields.certification}}'
+            fields:
+              - {name: org, label: "Org", widget: string}
+              - {name: certification, label: "Certification", widget: string}
+              - {name: year, label: "Year", widget: string}
+              - {name: link, label: "Link", widget: string}
+          - name: publishes
+            label: "Publishes"
+            widget: list
+            summary: '{{fields.title}}'
+            fields:
+              - {name: title, label: "Title", widget: string}
+              - {name: date, label: "Date", widget: string}
+              - {name: link, label: "Link", widget: string}
+              - {name: details, label: "Details", widget: string}
+
